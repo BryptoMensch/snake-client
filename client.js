@@ -13,13 +13,16 @@ const connect = function () {
 	// connect handler.
 	conn.on("connect", () => {
 		conn.write("Name: AJS");
-		// conn.write("Move: up");
 		console.log("Successfully connected to game server");
 	});
+
+	conn.on("data", (data) => {
+		console.log(data);
+	});
+
 	return conn;
 };
 
-console.log("Connecting ...");
-connect();
-
 module.exports = { connect };
+
+// conn.write("Move: up");
